@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { products } from '../products';
+import { Product, products } from '../products';
 import { ActivatedRoute } from '@angular/router';
 import { CartService } from '../cart.service';
 
@@ -9,14 +9,14 @@ import { CartService } from '../cart.service';
   styleUrls: ['./product-details.component.css']
 })
 export class ProductDetailsComponent implements OnInit {
-  product;
+  product: Product | undefined;
 
   constructor(
     private route: ActivatedRoute,
     private cartService: CartService
   ) {}
 
-  addToCart(product) {
+  addToCart(product: Product) {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to cart!');
   }
