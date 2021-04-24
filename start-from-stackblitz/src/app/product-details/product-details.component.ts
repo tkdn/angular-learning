@@ -16,12 +16,12 @@ export class ProductDetailsComponent implements OnInit {
     private cartService: CartService
   ) {}
 
-  addToCart(product: Product) {
+  addToCart(product: Product): void {
     this.cartService.addToCart(product);
     window.alert('Your product has been added to cart!');
   }
 
-  ngOnInit() {
+  ngOnInit(): void {
     const routeParams = this.route.snapshot.paramMap;
     const productIdFromRoute = Number(routeParams.get('productId'));
     this.product = products.find(product => product.id === productIdFromRoute);
